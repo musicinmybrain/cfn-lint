@@ -427,7 +427,7 @@
       ]
     },
     "AWS AppConfig": {
-      "ARNFormat": "arn:aws:appconfig:<region>:<account-id>:<relative-id>",
+      "ARNFormat": "arn:aws:appconfig:${Region}:${Account}:${RelativeId}",
       "ARNRegex": "^arn:aws:appconfig:.+",
       "Actions": [
         "CreateApplication",
@@ -447,6 +447,7 @@
         "GetDeploymentStrategy",
         "GetEnvironment",
         "GetHostedConfigurationVersion",
+        "GetLatestConfiguration",
         "ListApplications",
         "ListConfigurationProfiles",
         "ListDeploymentStrategies",
@@ -454,6 +455,7 @@
         "ListEnvironments",
         "ListHostedConfigurationVersions",
         "ListTagsForResource",
+        "StartConfigurationSession",
         "StartDeployment",
         "StopDeployment",
         "TagResource",
@@ -527,6 +529,22 @@
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ]
+    },
+    "AWS Application Auto Scaling": {
+      "Actions": [
+        "DeleteScalingPolicy",
+        "DeleteScheduledAction",
+        "DeregisterScalableTarget",
+        "DescribeScalableTargets",
+        "DescribeScalingActivities",
+        "DescribeScalingPolicies",
+        "DescribeScheduledActions",
+        "PutScalingPolicy",
+        "PutScheduledAction",
+        "RegisterScalableTarget"
+      ],
+      "HasResource": false,
+      "StringPrefix": "application-autoscaling"
     },
     "AWS Application Cost Profiler Service": {
       "Actions": [
@@ -6703,7 +6721,7 @@
       "StringPrefix": "ssm-incidents"
     },
     "AWS Systems Manager Incident Manager Contacts": {
-      "ARNFormat": "arn:aws:ssm-contacts:<region>:<account-id>:<relative-id>",
+      "ARNFormat": "arn:aws:ssm-contacts:${Region}:${Account}:${ResourceType}/${ResourceId}",
       "ARNRegex": "^arn:aws:ssm-contacts:.+",
       "Actions": [
         "AcceptPage",
@@ -7994,7 +8012,7 @@
       "StringPrefix": "clouddirectory"
     },
     "Amazon CloudFront": {
-      "ARNFormat": "arn:${Partition}:cloudfront::<accountID>:<resource_type>/<resource_id>",
+      "ARNFormat": "arn:${Partition}:cloudfront::${AccountId}:${ResourceType}/${ResourceId}",
       "ARNRegex": "^arn:${Partition}:cloudfront::[0-9]+:.+",
       "Actions": [
         "AssociateAlias",
@@ -8011,6 +8029,7 @@
         "CreateOriginRequestPolicy",
         "CreatePublicKey",
         "CreateRealtimeLogConfig",
+        "CreateResponseHeadersPolicy",
         "CreateStreamingDistribution",
         "CreateStreamingDistributionWithTags",
         "DeleteCachePolicy",
@@ -8024,6 +8043,7 @@
         "DeleteOriginRequestPolicy",
         "DeletePublicKey",
         "DeleteRealtimeLogConfig",
+        "DeleteResponseHeadersPolicy",
         "DeleteStreamingDistribution",
         "DescribeFunction",
         "GetCachePolicy",
@@ -8046,6 +8066,8 @@
         "GetPublicKey",
         "GetPublicKeyConfig",
         "GetRealtimeLogConfig",
+        "GetResponseHeadersPolicy",
+        "GetResponseHeadersPolicyConfig",
         "GetStreamingDistribution",
         "GetStreamingDistributionConfig",
         "ListCachePolicies",
@@ -8057,6 +8079,7 @@
         "ListDistributionsByLambdaFunction",
         "ListDistributionsByOriginRequestPolicyId",
         "ListDistributionsByRealtimeLogConfig",
+        "ListDistributionsByResponseHeadersPolicyId",
         "ListDistributionsByWebACLId",
         "ListFieldLevelEncryptionConfigs",
         "ListFieldLevelEncryptionProfiles",
@@ -8066,6 +8089,7 @@
         "ListOriginRequestPolicies",
         "ListPublicKeys",
         "ListRealtimeLogConfigs",
+        "ListResponseHeadersPolicies",
         "ListStreamingDistributions",
         "ListTagsForResource",
         "PublishFunction",
@@ -8082,6 +8106,7 @@
         "UpdateOriginRequestPolicy",
         "UpdatePublicKey",
         "UpdateRealtimeLogConfig",
+        "UpdateResponseHeadersPolicy",
         "UpdateStreamingDistribution"
       ],
       "HasResource": true,
@@ -8972,7 +8997,10 @@
         "CreateMembers",
         "DeleteGraph",
         "DeleteMembers",
+        "DescribeOrganizationConfiguration",
+        "DisableOrganizationAdminAccount",
         "DisassociateMembership",
+        "EnableOrganizationAdminAccount",
         "GetFreeTrialEligibility",
         "GetGraphIngestState",
         "GetMembers",
@@ -8981,12 +9009,14 @@
         "ListGraphs",
         "ListInvitations",
         "ListMembers",
+        "ListOrganizationAdminAccounts",
         "ListTagsForResource",
         "RejectInvitation",
         "SearchGraph",
         "StartMonitoringMember",
         "TagResource",
-        "UntagResource"
+        "UntagResource",
+        "UpdateOrganizationConfiguration"
       ],
       "HasResource": true,
       "StringPrefix": "detective",
@@ -11977,15 +12007,18 @@
         "DeleteProject",
         "DescribeDataset",
         "DescribeModel",
+        "DescribeModelPackagingJob",
         "DescribeProject",
         "DescribeTrialDetection",
         "DetectAnomalies",
         "ListDatasetEntries",
+        "ListModelPackagingJobs",
         "ListModels",
         "ListProjects",
         "ListTagsForResource",
         "ListTrialDetections",
         "StartModel",
+        "StartModelPackagingJob",
         "StartTrialDetection",
         "StopModel",
         "TagResource",
@@ -13667,6 +13700,7 @@
         "CancelDomainTransferToAnotherAwsAccount",
         "CheckDomainAvailability",
         "CheckDomainTransferability",
+        "DeleteDomain",
         "DeleteTagsForDomain",
         "DisableDomainAutoRenew",
         "DisableDomainTransferLock",
@@ -13678,6 +13712,7 @@
         "GetOperationDetail",
         "ListDomains",
         "ListOperations",
+        "ListPrices",
         "ListTagsForDomain",
         "RegisterDomain",
         "RejectDomainTransferFromAnotherAwsAccount",
@@ -13728,12 +13763,20 @@
         "ListControlPanels",
         "ListRoutingControls",
         "ListSafetyRules",
+        "ListTagsForResource",
+        "TagResource",
+        "UntagResource",
         "UpdateControlPanel",
         "UpdateRoutingControl",
         "UpdateSafetyRule"
       ],
       "HasResource": true,
-      "StringPrefix": "route53-recovery-control-config"
+      "StringPrefix": "route53-recovery-control-config",
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ]
     },
     "Amazon Route 53 Recovery Readiness": {
       "ARNFormat": "arn:${Partition}:route53-recovery-readiness::${Account}:${ResourceType}/${ResourceName}",
@@ -15469,22 +15512,6 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ]
-    },
-    "Application Auto Scaling": {
-      "Actions": [
-        "DeleteScalingPolicy",
-        "DeleteScheduledAction",
-        "DeregisterScalableTarget",
-        "DescribeScalableTargets",
-        "DescribeScalingActivities",
-        "DescribeScalingPolicies",
-        "DescribeScheduledActions",
-        "PutScalingPolicy",
-        "PutScheduledAction",
-        "RegisterScalableTarget"
-      ],
-      "HasResource": false,
-      "StringPrefix": "application-autoscaling"
     },
     "Application Discovery": {
       "Actions": [

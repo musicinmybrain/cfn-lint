@@ -29397,6 +29397,20 @@
         }
       }
     },
+    "AWS::Kinesis::Stream.StreamModeDetails": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html",
+      "Properties": {
+        "StreamMode": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html#cfn-kinesis-stream-streammodedetails-streammode",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::Kinesis::Stream.StreamModeDetails.StreamMode"
+          }
+        }
+      }
+    },
     "AWS::KinesisAnalytics::Application.CSVMappingParameters": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-csvmappingparameters.html",
       "Properties": {
@@ -36185,14 +36199,14 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions",
           "DuplicatesAllowed": false,
           "PrimitiveItemType": "String",
-          "Required": false,
+          "Required": true,
           "Type": "List",
           "UpdateType": "Mutable"
         },
         "ContentTransformation": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation",
           "PrimitiveType": "Json",
-          "Required": false,
+          "Required": true,
           "UpdateType": "Mutable"
         }
       }
@@ -41617,6 +41631,17 @@
         }
       }
     },
+    "AWS::WAFv2::RuleGroup.CaptchaConfig": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html",
+      "Properties": {
+        "ImmunityTimeProperty": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captchaconfig.html#cfn-wafv2-rulegroup-captchaconfig-immunitytimeproperty",
+          "Required": false,
+          "Type": "ImmunityTimeProperty",
+          "UpdateType": "Mutable"
+        }
+      }
+    },
     "AWS::WAFv2::RuleGroup.CustomResponseBody": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html",
       "Properties": {
@@ -41777,6 +41802,20 @@
         }
       }
     },
+    "AWS::WAFv2::RuleGroup.ImmunityTimeProperty": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-immunitytimeproperty.html",
+      "Properties": {
+        "ImmunityTime": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-immunitytimeproperty.html#cfn-wafv2-rulegroup-immunitytimeproperty-immunitytime",
+          "PrimitiveType": "Integer",
+          "Required": true,
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::WAFv2::RuleGroup.ImmunityTimeProperty.ImmunityTime"
+          }
+        }
+      }
+    },
     "AWS::WAFv2::RuleGroup.JsonBody": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html",
       "Properties": {
@@ -41933,6 +41972,33 @@
         }
       }
     },
+    "AWS::WAFv2::RuleGroup.RegexMatchStatement": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html",
+      "Properties": {
+        "FieldToMatch": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-fieldtomatch",
+          "Required": true,
+          "Type": "FieldToMatch",
+          "UpdateType": "Mutable"
+        },
+        "RegexString": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-regexstring",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::WAFv2::RuleGroup.RegexMatchStatement.RegexString"
+          }
+        },
+        "TextTransformations": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexmatchstatement.html#cfn-wafv2-rulegroup-regexmatchstatement-texttransformations",
+          "ItemType": "TextTransformation",
+          "Required": true,
+          "Type": "List",
+          "UpdateType": "Mutable"
+        }
+      }
+    },
     "AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html",
       "Properties": {
@@ -41967,6 +42033,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action",
           "Required": false,
           "Type": "RuleAction",
+          "UpdateType": "Mutable"
+        },
+        "CaptchaConfig": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-captchaconfig",
+          "Required": false,
+          "Type": "CaptchaConfig",
           "UpdateType": "Mutable"
         },
         "Name": {
@@ -42016,6 +42088,12 @@
         },
         "Block": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block",
+          "PrimitiveType": "Json",
+          "Required": false,
+          "UpdateType": "Mutable"
+        },
+        "Captcha": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-captcha",
           "PrimitiveType": "Json",
           "Required": false,
           "UpdateType": "Mutable"
@@ -42128,6 +42206,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement",
           "Required": false,
           "Type": "RateBasedStatement",
+          "UpdateType": "Mutable"
+        },
+        "RegexMatchStatement": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexmatchstatement",
+          "Required": false,
+          "Type": "RegexMatchStatement",
           "UpdateType": "Mutable"
         },
         "RegexPatternSetReferenceStatement": {
@@ -42289,6 +42373,28 @@
           "ItemType": "TextTransformation",
           "Required": true,
           "Type": "List",
+          "UpdateType": "Mutable"
+        }
+      }
+    },
+    "AWS::WAFv2::WebACL.CaptchaAction": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html",
+      "Properties": {
+        "CustomRequestHandling": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html#cfn-wafv2-webacl-captchaaction-customrequesthandling",
+          "Required": false,
+          "Type": "CustomRequestHandling",
+          "UpdateType": "Mutable"
+        }
+      }
+    },
+    "AWS::WAFv2::WebACL.CaptchaConfig": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html",
+      "Properties": {
+        "ImmunityTimeProperty": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html#cfn-wafv2-webacl-captchaconfig-immunitytimeproperty",
+          "Required": false,
+          "Type": "ImmunityTimeProperty",
           "UpdateType": "Mutable"
         }
       }
@@ -42560,6 +42666,20 @@
         }
       }
     },
+    "AWS::WAFv2::WebACL.ImmunityTimeProperty": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html",
+      "Properties": {
+        "ImmunityTime": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html#cfn-wafv2-webacl-immunitytimeproperty-immunitytime",
+          "PrimitiveType": "Integer",
+          "Required": true,
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::WAFv2::WebACL.ImmunityTimeProperty.ImmunityTime"
+          }
+        }
+      }
+    },
     "AWS::WAFv2::WebACL.JsonBody": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html",
       "Properties": {
@@ -42761,6 +42881,33 @@
         }
       }
     },
+    "AWS::WAFv2::WebACL.RegexMatchStatement": {
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html",
+      "Properties": {
+        "FieldToMatch": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-fieldtomatch",
+          "Required": true,
+          "Type": "FieldToMatch",
+          "UpdateType": "Mutable"
+        },
+        "RegexString": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-regexstring",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Mutable",
+          "Value": {
+            "ValueType": "AWS::WAFv2::WebACL.RegexMatchStatement.RegexString"
+          }
+        },
+        "TextTransformations": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html#cfn-wafv2-webacl-regexmatchstatement-texttransformations",
+          "ItemType": "TextTransformation",
+          "Required": true,
+          "Type": "List",
+          "UpdateType": "Mutable"
+        }
+      }
+    },
     "AWS::WAFv2::WebACL.RegexPatternSetReferenceStatement": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html",
       "Properties": {
@@ -42795,6 +42942,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action",
           "Required": false,
           "Type": "RuleAction",
+          "UpdateType": "Mutable"
+        },
+        "CaptchaConfig": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-captchaconfig",
+          "Required": false,
+          "Type": "CaptchaConfig",
           "UpdateType": "Mutable"
         },
         "Name": {
@@ -42852,6 +43005,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block",
           "Required": false,
           "Type": "BlockAction",
+          "UpdateType": "Mutable"
+        },
+        "Captcha": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-captcha",
+          "Required": false,
+          "Type": "CaptchaAction",
           "UpdateType": "Mutable"
         },
         "Count": {
@@ -42989,6 +43148,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement",
           "Required": false,
           "Type": "RateBasedStatement",
+          "UpdateType": "Mutable"
+        },
+        "RegexMatchStatement": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexmatchstatement",
+          "Required": false,
+          "Type": "RegexMatchStatement",
           "UpdateType": "Mutable"
         },
         "RegexPatternSetReferenceStatement": {
@@ -43319,7 +43484,7 @@
       }
     }
   },
-  "ResourceSpecificationVersion": "50.0.0",
+  "ResourceSpecificationVersion": "51.0.0",
   "ResourceTypes": {
     "AWS::ACMPCA::Certificate": {
       "Attributes": {
@@ -46719,6 +46884,71 @@
           "UpdateType": "Mutable",
           "Value": {
             "ValueType": "AWS::AppSync::DataSource.Type"
+          }
+        }
+      }
+    },
+    "AWS::AppSync::DomainName": {
+      "Attributes": {
+        "AppSyncDomainName": {
+          "PrimitiveType": "String"
+        },
+        "DomainName": {
+          "PrimitiveType": "String"
+        },
+        "HostedZoneId": {
+          "PrimitiveType": "String"
+        }
+      },
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html",
+      "Properties": {
+        "CertificateArn": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-certificatearn",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Immutable",
+          "Value": {
+            "ValueType": "AWS::AppSync::DomainName.CertificateArn"
+          }
+        },
+        "Description": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-description",
+          "PrimitiveType": "String",
+          "Required": false,
+          "UpdateType": "Mutable"
+        },
+        "DomainName": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainname.html#cfn-appsync-domainname-domainname",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Immutable",
+          "Value": {
+            "ValueType": "AWS::AppSync::DomainName.DomainName"
+          }
+        }
+      }
+    },
+    "AWS::AppSync::DomainNameApiAssociation": {
+      "Attributes": {
+        "ApiAssociationIdentifier": {
+          "PrimitiveType": "String"
+        }
+      },
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html",
+      "Properties": {
+        "ApiId": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-apiid",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Mutable"
+        },
+        "DomainName": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-domainnameapiassociation.html#cfn-appsync-domainnameapiassociation-domainname",
+          "PrimitiveType": "String",
+          "Required": true,
+          "UpdateType": "Immutable",
+          "Value": {
+            "ValueType": "AWS::AppSync::DomainNameApiAssociation.DomainName"
           }
         }
       }
@@ -54227,10 +54457,7 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-addressfamily",
           "PrimitiveType": "String",
           "Required": true,
-          "UpdateType": "Immutable",
-          "Value": {
-            "ValueType": "AWS::EC2::IPAMPool.AddressFamily"
-          }
+          "UpdateType": "Immutable"
         },
         "AllocationDefaultNetmaskLength": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html#cfn-ec2-ipampool-allocationdefaultnetmasklength",
@@ -55731,16 +55958,21 @@
       }
     },
     "AWS::EC2::SubnetRouteTableAssociation": {
-      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html",
+      "Attributes": {
+        "Id": {
+          "PrimitiveType": "String"
+        }
+      },
+      "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html",
       "Properties": {
         "RouteTableId": {
-          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html#cfn-ec2-subnetroutetableassociation-routetableid",
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-routetableid",
           "PrimitiveType": "String",
           "Required": true,
-          "UpdateType": "Mutable"
+          "UpdateType": "Immutable"
         },
         "SubnetId": {
-          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html#cfn-ec2-subnetroutetableassociation-subnetid",
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html#cfn-ec2-subnetroutetableassociation-subnetid",
           "PrimitiveType": "String",
           "Required": true,
           "UpdateType": "Immutable"
@@ -56307,10 +56539,7 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype",
           "PrimitiveType": "String",
           "Required": false,
-          "UpdateType": "Immutable",
-          "Value": {
-            "ValueType": "AWS::EC2::VPCEndpoint.VpcEndpointType"
-          }
+          "UpdateType": "Immutable"
         },
         "VpcId": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid",
@@ -63904,7 +64133,7 @@
         "ShardCount": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount",
           "PrimitiveType": "Integer",
-          "Required": true,
+          "Required": false,
           "UpdateType": "Mutable",
           "Value": {
             "ValueType": "AWS::Kinesis::Stream.ShardCount"
@@ -63914,6 +64143,12 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption",
           "Required": false,
           "Type": "StreamEncryption",
+          "UpdateType": "Mutable"
+        },
+        "StreamModeDetails": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streammodedetails",
+          "Required": false,
+          "Type": "StreamModeDetails",
           "UpdateType": "Mutable"
         },
         "Tags": {
@@ -68608,7 +68843,7 @@
         },
         "ObjectLambdaConfiguration": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration",
-          "Required": false,
+          "Required": true,
           "Type": "ObjectLambdaConfiguration",
           "UpdateType": "Mutable"
         }
@@ -73239,6 +73474,12 @@
       },
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html",
       "Properties": {
+        "CaptchaConfig": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-captchaconfig",
+          "Required": false,
+          "Type": "CaptchaConfig",
+          "UpdateType": "Mutable"
+        },
         "CustomResponseBodies": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies",
           "ItemType": "CustomResponseBody",
@@ -73717,6 +73958,21 @@
         "NONE",
         "RELATIONAL_DATABASE"
       ]
+    },
+    "AWS::AppSync::DomainName.CertificateArn": {
+      "AllowedPatternRegex": "^arn:[a-z-]*:acm:[a-z0-9-]*:\\d{12}:certificate/[0-9A-Za-z_/-]*$",
+      "StringMax": 2048,
+      "StringMin": 3
+    },
+    "AWS::AppSync::DomainName.DomainName": {
+      "AllowedPatternRegex": "^(\\*[a-z\\d-]*\\.)?([a-z\\d-]+\\.)+[a-z\\d-]+$",
+      "StringMax": 253,
+      "StringMin": 1
+    },
+    "AWS::AppSync::DomainNameApiAssociation.DomainName": {
+      "AllowedPatternRegex": "^(\\*[a-z\\d-]*\\.)?([a-z\\d-]+\\.)+[a-z\\d-]+$",
+      "StringMax": 253,
+      "StringMin": 1
     },
     "AWS::AppSync::GraphQLApi.AuthType": {
       "AllowedValues": [
@@ -75889,16 +76145,10 @@
         "REJECT"
       ]
     },
-    "AWS::EC2::IPAMPool.AddressFamily": {
-      "AllowedValues": [
-        "IPv4",
-        "IPv6"
-      ]
-    },
     "AWS::EC2::IPAMScope.IpamScopeType": {
       "AllowedValues": [
-        "Public",
-        "Private"
+        "public",
+        "private"
       ]
     },
     "AWS::EC2::Instance.Affinity": {
@@ -76186,13 +76436,6 @@
           "AWS::EC2::VPC"
         ]
       }
-    },
-    "AWS::EC2::VPCEndpoint.VpcEndpointType": {
-      "AllowedValues": [
-        "Interface",
-        "Gateway",
-        "GatewayLoadBalancer"
-      ]
     },
     "AWS::ECR::ReplicationConfiguration.ReplicationDestination.Region": {
       "AllowedPatternRegex": "[0-9a-z-]{2,25}"
@@ -76738,7 +76981,8 @@
     "AWS::Glue::Schema.DataFormat": {
       "AllowedValues": [
         "AVRO",
-        "JSON"
+        "JSON",
+        "PROTOBUF"
       ]
     },
     "AWS::Glue::Schema.Name": {
@@ -77630,6 +77874,12 @@
     "AWS::Kinesis::Stream.StreamEncryption.KeyId": {
       "StringMax": 2048,
       "StringMin": 1
+    },
+    "AWS::Kinesis::Stream.StreamModeDetails.StreamMode": {
+      "AllowedValues": [
+        "ON_DEMAND",
+        "PROVISIONED"
+      ]
     },
     "AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment": {
       "AllowedValues": [
@@ -80124,6 +80374,10 @@
       "StringMax": 2048,
       "StringMin": 20
     },
+    "AWS::WAFv2::RuleGroup.ImmunityTimeProperty.ImmunityTime": {
+      "NumberMax": 259200,
+      "NumberMin": 60
+    },
     "AWS::WAFv2::RuleGroup.JsonBody.InvalidFallbackBehavior": {
       "AllowedValues": [
         "MATCH",
@@ -80165,6 +80419,10 @@
     "AWS::WAFv2::RuleGroup.RateBasedStatement.Limit": {
       "NumberMax": 2000000000,
       "NumberMin": 100
+    },
+    "AWS::WAFv2::RuleGroup.RegexMatchStatement.RegexString": {
+      "StringMax": 512,
+      "StringMin": 1
     },
     "AWS::WAFv2::RuleGroup.RegexPatternSetReferenceStatement.Arn": {
       "StringMax": 2048,
@@ -80239,7 +80497,7 @@
       "AllowedPatternRegex": "^[\\w\\-]+$"
     },
     "AWS::WAFv2::WebACL.CustomResponse.ResponseCode": {
-      "NumberMax": 600,
+      "NumberMax": 599,
       "NumberMin": 200
     },
     "AWS::WAFv2::WebACL.Description": {
@@ -80274,6 +80532,10 @@
     "AWS::WAFv2::WebACL.IPSetReferenceStatement.Arn": {
       "StringMax": 2048,
       "StringMin": 20
+    },
+    "AWS::WAFv2::WebACL.ImmunityTimeProperty.ImmunityTime": {
+      "NumberMax": 259200,
+      "NumberMin": 60
     },
     "AWS::WAFv2::WebACL.JsonBody.InvalidFallbackBehavior": {
       "AllowedValues": [
@@ -80321,6 +80583,10 @@
     "AWS::WAFv2::WebACL.RateBasedStatement.Limit": {
       "NumberMax": 2000000000,
       "NumberMin": 100
+    },
+    "AWS::WAFv2::WebACL.RegexMatchStatement.RegexString": {
+      "StringMax": 512,
+      "StringMin": 1
     },
     "AWS::WAFv2::WebACL.RegexPatternSetReferenceStatement.Arn": {
       "StringMax": 2048,
